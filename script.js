@@ -27,12 +27,14 @@ function createCards(myLibrary) {
     pages.textContent = element.pages;
 
     cardContainer.appendChild(card);
-    card.classList = 'bg-fuchsia-400';
+    card.classList = 'bg-fuchsia-400 w-1/5 border-2';
   });
 }
 
 const currentBook = new Book('Harry Potter', 'J.K Rowling', 500);
+const book2 = new Book('Harry Porter', 'bob', 200);
 addBookToLibrary(currentBook);
+addBookToLibrary(book2);
 createCards(myLibrary);
 
 // console.table(myLibrary);
