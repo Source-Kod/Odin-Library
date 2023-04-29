@@ -33,21 +33,31 @@ function createCards() {
     const pages = document.createElement('p');
     const readButton = document.createElement('button');
     const removeButton = document.createElement('button');
+    const buttonContainer = document.createElement('div');
+    const infoContainer = document.createElement('div');
 
-    card.appendChild(title);
-    card.appendChild(author);
-    card.appendChild(pages);
-    card.appendChild(readButton);
-    card.appendChild(removeButton);
+    buttonContainer.appendChild(removeButton);
+    buttonContainer.appendChild(readButton);
 
-    title.textContent = element.title;
-    author.textContent = element.author;
-    pages.textContent = element.pages;
+    infoContainer.appendChild(title);
+    infoContainer.appendChild(author);
+    infoContainer.appendChild(pages);
+
+    card.appendChild(infoContainer);
+    card.appendChild(buttonContainer);
+
+    title.textContent = `Title: ${element.title}`;
+    author.textContent = `Author: ${element.author}`;
+    pages.textContent = `Pages: ${element.pages}`;
     readButton.textContent = 'Mark Read';
     removeButton.textContent = 'Remove';
 
     cardContainer.appendChild(card);
-    card.classList = 'flex flex-col items-center bg-fuchsia-400 border-2 h-1/5';
+
+    // add css
+    infoContainer.classList = 'flex flex-col gap-1';
+    buttonContainer.classList = 'flex justify-between';
+    card.classList = 'flex flex-col justify-between bg-white border-2 h-1/5 p-3 rounded-lg';
   });
 }
 
