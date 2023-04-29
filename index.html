@@ -21,15 +21,15 @@
         <legend class="mb-2 text-gray-900">Add a Book</legend>
         <!-- title input -->
         <div class="relative z-0 w-full mb-6 group">
-          <input type="text" name="title"
+          <input id="title" type="text" name="title"
             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" " required />
           <label for="title"
-            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Title</label>
         </div>
         <!-- author input -->
         <div class="relative z-0 w-full mb-6 group">
-          <input type="text" name="author"
+          <input id="author" type="text" name="author"
             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" " required />
           <label for="author"
@@ -37,21 +37,31 @@
         </div>
         <!-- pages input -->
         <div class="relative z-0 w-full mb-6 group">
-          <input type="number" name="pages"
+          <input id="pages" type="number" name="pages"
             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" " required />
           <label for="pages"
             class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Pages</label>
         </div>
+        <!-- have you read toggle -->
+        <div>
+          <label class="relative inline-flex items-center mb-4 cursor-pointer">
+            <input id="readToggle" type="checkbox" value="" class="sr-only peer">
+            <div
+              class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+            </div>
+            <span class="ml-3 text-sm font-medium text-gray-600">Have you read?</span>
+          </label>
+        </div>
         <!-- submit button -->
-        <button type="submit"
+        <button id="addBook" type="submit"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
           Submit
         </button>
       </form>
     </div>
     <!-- right side -->
-    <div id="cardContainer" class="grid gap-4 w-4/5 bg-gray-600 p-3"></div>
+    <div id="cardContainer" class="grid grid-cols-4 gap-4 w-4/5 bg-gray-600 p-3"></div>
   </div>
 </body>
 
