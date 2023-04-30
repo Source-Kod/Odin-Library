@@ -1,17 +1,4 @@
-const myLibrary = [
-  {
-    title: 'ted laso',
-    author: 'bbg',
-    pages: 12,
-    read: true,
-  },
-  {
-    title: 'Harry Potter',
-    author: 'J.K Rowling',
-    pages: 500,
-    read: false,
-  },
-];
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -67,7 +54,11 @@ function createCards() {
     removeButton.classList = 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none';
     readButton.classList = 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none';
     card.classList = 'flex flex-col justify-between bg-white border-4 h-1/5 p-3 rounded-lg';
-    if (element.read === true) card.classList = 'flex flex-col justify-between bg-white border-4 h-1/5 p-3 rounded-lg border-blue-700';
+
+    if (element.read === true) {
+      card.classList = 'flex flex-col justify-between bg-white border-4 h-1/5 p-3 rounded-lg border-blue-700';
+      readButton.textContent = 'Mark Unread';
+    }
 
     // events for buttons
     removeButton.addEventListener('click', () => {
