@@ -24,6 +24,21 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
+function deleteBook(element) {
+  myLibrary.splice(element, 1);
+}
+
+function changeReadStatus(element) {
+  return !element.read;
+}
+
+function removeCards() {
+  const cardContainer = document.querySelector('#cardContainer');
+  while (cardContainer.firstChild) {
+    cardContainer.removeChild(cardContainer.firstChild);
+  }
+}
+
 function createCards() {
   myLibrary.forEach((element) => {
     const cardContainer = document.querySelector('#cardContainer');
@@ -57,15 +72,24 @@ function createCards() {
     // add css
     infoContainer.classList = 'flex flex-col gap-1';
     buttonContainer.classList = 'flex justify-between';
-    card.classList = 'flex flex-col justify-between bg-white border-2 h-1/5 p-3 rounded-lg';
-  });
-}
+    removeButton.classList = 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none';
+    readButton.classList = 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none';
+    card.classList = 'flex flex-col justify-between bg-white border-4 h-1/5 p-3 rounded-lg';
+    if (element.read === true) card.classList = 'flex flex-col justify-between bg-white border-4 h-1/5 p-3 rounded-lg border-blue-700';
 
-function removeCards() {
-  const cardContainer = document.querySelector('#cardContainer');
-  while (cardContainer.firstChild) {
-    cardContainer.removeChild(cardContainer.firstChild);
-  }
+    // events for buttons
+    removeButton.addEventListener('click', () => {
+      deleteBook();
+      removeCards();
+      createCards();
+    });
+
+    readButton.addEventListener('click', () => {
+      element.read = changeReadStatus(element);
+      removeCards();
+      createCards();
+    });
+  });
 }
 
 function createEvents() {
@@ -76,7 +100,7 @@ function createEvents() {
     const author = document.querySelector('#author').value;
     const pages = document.querySelector('#pages').value;
     const read = document.querySelector('#readToggle');
-    const currentBook = new Book(title, author, pages, read);
+    const currentBook = new Book(title, author, pages, read.checked);
 
     addBookToLibrary(currentBook);
     removeCards();
