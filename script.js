@@ -24,14 +24,6 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-function deleteBook(element) {
-  myLibrary.splice(element, 1);
-}
-
-function changeReadStatus(element) {
-  return !element.read;
-}
-
 function removeCards() {
   const cardContainer = document.querySelector('#cardContainer');
   while (cardContainer.firstChild) {
@@ -79,13 +71,13 @@ function createCards() {
 
     // events for buttons
     removeButton.addEventListener('click', () => {
-      deleteBook();
+      myLibrary.splice(myLibrary.indexOf(element), 1);
       removeCards();
       createCards();
     });
 
     readButton.addEventListener('click', () => {
-      element.read = changeReadStatus(element);
+      element.read = !element.read;
       removeCards();
       createCards();
     });
