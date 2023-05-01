@@ -53,10 +53,10 @@ function createCards() {
     buttonContainer.classList = 'flex justify-between';
     removeButton.classList = 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none';
     readButton.classList = 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none';
-    card.classList = 'flex flex-col justify-between bg-white border-4 h-1/5 p-3 rounded-lg';
+    card.classList = 'flex flex-col justify-between bg-white border-4 h-1/5 p-3 rounded-lg h-52';
 
     if (element.read === true) {
-      card.classList = 'flex flex-col justify-between bg-white border-4 h-1/5 p-3 rounded-lg border-blue-700';
+      card.classList = 'flex flex-col justify-between bg-white border-4 h-1/5 p-3 rounded-lg h-52 border-blue-700';
       readButton.textContent = 'Mark Unread';
     }
 
